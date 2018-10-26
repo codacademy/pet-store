@@ -11,8 +11,7 @@ public class Pet {
     private double weight;
     private ArrayList<String> specialSigns = new ArrayList<>();
 
-    public Pet(String name, PetType petType, LocalDate birthDate, String nickname, int age, double weight) {
-        this.name = name;
+    public Pet(PetType petType, LocalDate birthDate, String nickname, int age, double weight) {
         this.petType = petType;
         this.birthDate = birthDate;
         this.nickname = nickname;
@@ -20,12 +19,16 @@ public class Pet {
         this.weight = weight;
     }
 
-    public String getName() {
-        return name;
+    public Pet(){
+
     }
 
-    public void setName(String name) {
+    public void setName(String name){
         this.name = name;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public PetType getPetType() {
@@ -75,6 +78,21 @@ public class Pet {
     public void addSpecialSign(String specialSign) {
 
         this.specialSigns.add(specialSign);
+    }
+
+    public String toString(){
+        String sSigns = "";
+        for(String sign : this.specialSigns){
+            sSigns = sSigns + sign + ",";
+        }
+
+        return "Name:" + this.name
+        +"\nPet type:" + this.petType.getTypeName()
+        +"\nBirthDate:" + this.birthDate
+        +"\nAge:" + this.age
+        +"\nNickName:" + this.nickname
+        +"\nWeight:" + this.weight
+        +"\nSpecial signs:" + sSigns;
     }
 
 }
