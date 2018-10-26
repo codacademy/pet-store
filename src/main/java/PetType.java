@@ -6,6 +6,9 @@ public class PetType {
         this.setTypeName(typeName);
     }
 
+    public PetType(){
+    }
+
     public String getTypeName() {
         return typeName;
     }
