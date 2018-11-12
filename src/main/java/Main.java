@@ -1,6 +1,8 @@
+import model.Pet;
+import model.PetType;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Main {

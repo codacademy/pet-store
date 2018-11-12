@@ -18,7 +18,7 @@ public class PetsJTable extends JFrame {
         pets = new DefaultTableModel();
 
         pets.addColumn("Name");
-        pets.addColumn("Pet type");
+        pets.addColumn("model.Pet type");
         pets.addColumn("Birth date");
         pets.addColumn("Nickname");
         pets.addColumn("Age");

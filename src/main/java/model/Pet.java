@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -87,7 +89,7 @@ public class Pet {
         }
 
         return "Name:" + this.name
-        +"\nPet type:" + this.petType.getTypeName()
+        +"\nmodel.Pet type:" + this.petType.getTypeName()
         +"\nBirthDate:" + this.birthDate
         +"\nAge:" + this.age
         +"\nNickName:" + this.nickname
