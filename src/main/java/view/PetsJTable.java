@@ -1,5 +1,7 @@
 package view;
 
+import model.PetTableModel;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -8,26 +10,14 @@ import java.awt.event.ActionListener;
 
 public class PetsJTable extends JFrame {
 
-    private DefaultTableModel pets;
+    private PetTableModel pets;
     private JTable table;
 
     public PetsJTable(){
 
         super("My pets store");
 
-        pets = new DefaultTableModel();
-
-        pets.addColumn("Name");
-        pets.addColumn("model.Pet type");
-        pets.addColumn("Birth date");
-        pets.addColumn("Nickname");
-        pets.addColumn("Age");
-        pets.addColumn("Weight");
-        pets.addColumn("Special signs");
-
-        String[] dog = {"Cat", "Sphinks", "2016-02-10", "3", "Musya", "3.0", "white and black,not bite,likes to play,"};
-
-        pets.addRow(dog);
+        pets = new PetTableModel();
 
         table = new JTable(pets);
 
@@ -40,7 +30,7 @@ public class PetsJTable extends JFrame {
                     public void actionPerformed(ActionEvent e) {
 
                         String[] pet = {"","","","","","",""};
-                        pets.addRow(pet);
+                        //pets.addRow(pet);
 
                     }
                 }
@@ -54,7 +44,7 @@ public class PetsJTable extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
-                        pets.removeRow(table.getSelectedRow());
+                        //pets.removeRow(table.getSelectedRow());
 
                     }
                 }
