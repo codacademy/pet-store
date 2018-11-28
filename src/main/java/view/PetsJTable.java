@@ -1,12 +1,15 @@
 package view;
 
+import model.Pet;
 import model.PetTableModel;
+import model.PetType;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 public class PetsJTable extends JFrame {
 
@@ -29,8 +32,19 @@ public class PetsJTable extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
-                        String[] pet = {"","","","","","",""};
-                        //pets.addRow(pet);
+                        Pet pet = new Pet();
+
+                        pet.setName("Tigr");
+                        pet.setAge(3);
+                        pet.setBirthDate(LocalDate.of(2015, 01, 10));
+                        pet.setNickname("Tayson");
+                        PetType pt = new PetType();
+                        pt.setTypeName("Wild");
+                        pet.setPetType(pt);
+                        pet.setWeight(200.0);
+                        pet.addSpecialSign("polosati");
+
+                        pets.addPet(pet);
 
                     }
                 }
@@ -44,7 +58,7 @@ public class PetsJTable extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
-                        //pets.removeRow(table.getSelectedRow());
+                        pets.deletePet(table.getSelectedRow());
 
                     }
                 }

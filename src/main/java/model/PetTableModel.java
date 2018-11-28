@@ -22,7 +22,7 @@ public class PetTableModel extends AbstractTableModel {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try{
-            Scanner input = new Scanner(new File("/home/nurgali/IdeaProjects/pet-store/src/main/java/petsdatabase.db"));
+            Scanner input = new Scanner(new File("C:\\Users\\Astana\\IdeaProjects\\pet-store\\src\\main\\java\\petsdatabase.db"));
 
             while(input.hasNextLine()){
                 String line;
@@ -116,6 +116,40 @@ public class PetTableModel extends AbstractTableModel {
         return data[rowIndex][columnIndex];
     }
 
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        super.setValueAt(aValue, rowIndex, columnIndex);
+        fireTableCellUpdated(rowIndex,columnIndex);
+    }
 
+    public void addPet(Pet pet){
+
+        Object[][]  newData = new Object[data.length + 1][columnNames.length];
+
+        for(int i = 0; i<data.length; i++){
+            newData[i][0] = data[i][0];
+            newData[i][1] = data[i][1];
+            newData[i][2] = data[i][2];
+            newData[i][3] = data[i][3];
+            newData[i][4] = data[i][4];
+            newData[i][5] = data[i][5];
+            newData[i][6] = data[i][6];
+        }
+
+        newData[newData.length - 1 ][0] = pet.getName();
+        newData[newData.length - 1][1] = pet.getPetType().getTypeName();
+        newData[newData.length - 1][2] = pet.getBirthDate();
+        newData[newData.length - 1][3] = pet.getNickname();
+        newData[newData.length - 1][4] = pet.getAge();
+        newData[newData.length - 1][5] = pet.getWeight();
+        newData[newData.length - 1][6] = pet.getSpecialSigns();
+
+        data = newData;
+
+    }
+
+    public void deletePet(int rowId){
+
+    }
 
 }
